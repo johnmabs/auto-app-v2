@@ -48,7 +48,7 @@ export default function HeroSection() {
   return (
     <section
       aria-label="Présentation Autostore Congo"
-      className="relative min-h-3/4 w-full overflow-hidden bg-gradient-hero pt-10"
+      className="relative min-h-3/4 w-full overflow-hidden bg-gradient-hero pt-10 md:pt-6"
     >
       {/* Ambient glows */}
       <div
@@ -86,21 +86,21 @@ export default function HeroSection() {
         <div className="flex flex-col justify-center lg:py-24">
           {/* Certified importer badge */}
           <div
-            className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/[0.07] px-4 py-2"
+            className="mb-4 md:mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/[0.07] px-4 py-2"
             style={fadeUp(100)}
           >
             <span
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full bg-amber-400"
             />
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-400">
+            <span className="text-[0.5rem] md:text-xs font-semibold uppercase tracking-[0.18em] text-amber-400">
               Spécialiste import auto au Congo
             </span>
           </div>
 
           {/* Headline */}
           <h1
-            className="mb-6 font-display text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.06] tracking-[-0.03em] text-(--text)"
+            className="mb-4 md:mb-6 font-display text-[clamp(2.6rem,6vw,4rem)] font-bold leading-[1.06] tracking-[-0.03em] text-(--text)"
             style={fadeUp(200)}
           >
             IMPORTATION{" "}
@@ -122,7 +122,7 @@ export default function HeroSection() {
 
           {/* Sub-copy */}
           <p
-            className="mb-10 max-w-md text-base leading-relaxed text-(--text)"
+            className="mb-6 md:mb-10 max-w-md text-base leading-relaxed text-(--text)"
             style={fadeUp(300)}
           >
             Achetez votre véhicule à l&apos;étranger en toute confiance. Nous
@@ -134,7 +134,7 @@ export default function HeroSection() {
           <div className="mb-10 flex flex-wrap gap-4" style={fadeUp(400)}>
             <Link
               href="/catalog"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-amber-400 px-7 py-4 text-sm font-bold tracking-wide text-zinc-900 transition-all duration-300 hover:bg-amber-300 hover:shadow-[0_0_40px_rgba(251,191,36,0.35)] active:scale-95"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-amber-400 px-6 py-3 text-xs md:text-sm font-bold tracking-wide text-zinc-900 transition-all duration-300 hover:bg-amber-300 hover:shadow-[0_0_40px_rgba(251,191,36,0.35)] active:scale-95"
             >
               {/* Shimmer sweep */}
               <span
@@ -145,13 +145,13 @@ export default function HeroSection() {
               <ArrowIcon />
             </Link>
 
-            <a
-              href="#devis"
-              className="group inline-flex items-center gap-2 rounded-2xl border border-(--border) bg-(--bg-2) px-7 py-4 text-sm font-semibold tracking-wide text-white/70 backdrop-blur-sm transition-all duration-300 hover:border-(--border-2) hover:bg-(--bg-4) hover:text-white active:scale-95"
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-2xl border border-(--border) bg-(--bg-2) px-6 py-3 text-xs md:text-sm font-semibold tracking-wide text-white/70 backdrop-blur-sm transition-all duration-300 hover:border-(--border-2) hover:bg-(--bg-4) hover:text-white active:scale-95"
             >
               <span>Demander un devis d&apos;importation</span>
               <ArrowIcon className="opacity-50 group-hover:opacity-100" />
-            </a>
+            </Link>
           </div>
 
           {/* Search bar */}
@@ -185,6 +185,13 @@ export default function HeroSection() {
           />
           <VehicleCard />
         </div>
+      </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-70">
+        <div className="w-px h-8 bg-(--gold)" aria-hidden="true" />
+        <span className="text-[0.6rem] uppercase tracking-[0.2em] text-(--muted)">
+          Défiler
+        </span>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import db from "@/lib/prisma";
-import { VehicleStatus } from "@generated/prisma/enums";
+import { VehicleStatus, type VehicleType } from "@generated/prisma/enums";
 import { buildVehicleFilters } from "../lib/vehicle-filters";
 import type { GetVehiclesParams } from "../types/vehicle-form.types";
 
@@ -88,6 +88,62 @@ export async function getRecentVehicles(limit: number = 6) {
       images: {
         where: { isPrimary: true },
         take: 1,
+      },
+      _count: {
+        select: {
+          requests: true,
+        },
+      },
+    },
+  });
+}
+
+export async function getVehicleBySlug(slug: string) {
+  return db.vehicle.findFirst({
+    where: {
+      slug,
+      deletedAt: null,
+    },
+    include: {
+      images: {
+        orderBy: {
+          order: "asc",
+        },
+      },
+      _count: {
+        select: {
+          requests: true,
+        },
+      },
+    },
+  });
+}
+
+export async function getSimilarVehicles(
+  vehicleId: string,
+  type: VehicleType,
+  limit: number = 3,
+) {
+  return db.vehicle.findMany({
+    where: {
+      id: {
+        not: vehicleId,
+      },
+      deletedAt: null,
+      type,
+      status: {
+        in: [VehicleStatus.AVAILABLE, VehicleStatus.TRANSIT],
+      },
+    },
+    take: limit,
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      images: {
+        orderBy: {
+          order: "asc",
+        },
       },
       _count: {
         select: {

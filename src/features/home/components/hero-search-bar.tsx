@@ -20,7 +20,7 @@ export default function SearchBar({
     <form
       onSubmit={handleSubmit}
       role="search"
-      className="relative flex items-center gap-3 rounded-2xl border px-5 py-4 border-black/15 bg-black/5 transition-all duration-300 focus-within:border-amber-400/50 focus-within:bg-black/10 focus-within:shadow-[0_0_0_4px_rgba(251,191,36,0.08)]"
+      className="relative flex items-center gap-3 rounded-2xl border px-4 py-3 border-black/15 bg-black/5 transition-all duration-300 focus-within:border-amber-400/50 focus-within:bg-black/10 focus-within:shadow-[0_0_0_4px_rgba(251,191,36,0.08)]"
     >
       <svg
         aria-hidden="true"

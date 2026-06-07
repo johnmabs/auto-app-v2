@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import type { NextAuthConfig } from "next-auth";
+import {
+  canAccessAdminRoute,
+  getAdminRouteForPath,
+} from "@/config/admin-routes";
 import { UserRole } from "@/shared/types/roles";
 import { z } from "zod";
 
@@ -24,11 +28,26 @@ export const authConfig = {
           return false;
         }
 
+        const route = getAdminRouteForPath(pathname);
+
+        /**
+         * Route admin inconnue
+         */
+        if (!route) {
+          return NextResponse.redirect(new URL("/admin", nextUrl));
+        }
+
         /**
          * Validation runtime du role
          */
         const parsedRole = roleSchema.safeParse(auth.user.role);
         const role = parsedRole.success ? parsedRole.data : UserRole.ADMIN;
+
+        const canAccess = canAccessAdminRoute(role, route);
+
+        if (!canAccess) {
+          return NextResponse.redirect(new URL("/admin", nextUrl));
+        }
 
         return true;
       }
