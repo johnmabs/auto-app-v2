@@ -115,7 +115,15 @@ export const adminRouteSections: AdminRouteSection[] = [
         matchSubPaths: true,
       },
 
-      /*
+      /* {
+        href: "/admin/partners",
+        label: "Partenaires",
+        icon: "partners",
+        description: "Gestion des partenaires.",
+        minRole: UserRole.ADMIN,
+        matchSubPaths: true,
+      },
+
       {
         href: "/admin/audit-logs",
         label: "Journal d'activite",
