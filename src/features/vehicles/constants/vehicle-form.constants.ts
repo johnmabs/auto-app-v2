@@ -30,8 +30,21 @@ export const VEHICLE_MAKES = [
 ] as const;
 
 export const VEHICLE_TYPE_OPTIONS = Object.values(VehicleType);
-export const FUEL_TYPE_OPTIONS = Object.values(FuelType);
-export const TRANSMISSION_OPTIONS = Object.values(TransmissionType);
+export const FUEL_TYPE_OPTIONS = [
+  { value: FuelType.GASOLINE, label: "Essence" },
+  { value: FuelType.DIESEL, label: "Diesel" },
+  { value: FuelType.ELECTRIC, label: "Électrique" },
+  { value: FuelType.HYBRID, label: "Hybride" },
+  { value: FuelType.PLUGIN_HYBRID, label: "Hybride rechargeable" },
+  { value: FuelType.HYDROGEN, label: "Hydrogène" },
+] as const;
+export const TRANSMISSION_OPTIONS = [
+  { value: TransmissionType.AUTOMATIC, label: "Automatique" },
+  { value: TransmissionType.MANUAL, label: "Manuelle" },
+  { value: TransmissionType.CVT, label: "CVT" },
+  { value: TransmissionType.DCT, label: "DCT" },
+  { value: TransmissionType.PDK, label: "PDK" },
+] as const;
 export const VEHICLE_STATUS_OPTIONS = Object.values(VehicleStatus);
 export const COUNTRY_OPTIONS = COUNTRIES.filter((country) => country.active);
 

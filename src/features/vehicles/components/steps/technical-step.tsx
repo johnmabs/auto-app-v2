@@ -41,8 +41,8 @@ export function TechnicalStep({ form, onChange }: Props) {
             }
           >
             {FUEL_TYPE_OPTIONS.map((fuel) => (
-              <option key={fuel} value={fuel}>
-                {fuel}
+              <option key={fuel.value} value={fuel.value}>
+                {fuel.label}
               </option>
             ))}
           </select>
@@ -59,8 +59,8 @@ export function TechnicalStep({ form, onChange }: Props) {
             }
           >
             {TRANSMISSION_OPTIONS.map((transmission) => (
-              <option key={transmission} value={transmission}>
-                {transmission}
+              <option key={transmission.value} value={transmission.value}>
+                {transmission.label}
               </option>
             ))}
           </select>
