@@ -9,7 +9,7 @@ export default function GlobalLoading() {
         {/* Animated logo */}
         <div className="flex items-center gap-2">
           <span className="font-display text-[1.8rem] tracking-[0.08em] text-(--gold) animate-pulse">
-            AUTOSTORE
+            DM-AUTOSTORE
           </span>
         </div>
         {/* Progress bar */}

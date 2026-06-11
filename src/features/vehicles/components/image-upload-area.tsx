@@ -126,6 +126,7 @@ export default function ImageUploadArea({
                 alt={`Photo ${i + 1}`}
                 fill
                 className="object-cover"
+                unoptimized
               />
 
               {i === 0 && (

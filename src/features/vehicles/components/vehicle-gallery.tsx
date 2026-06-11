@@ -3,13 +3,7 @@
 import type { ButtonHTMLAttributes } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ImageOff,
-  ZoomIn,
-  X,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, ImageOff, ZoomIn, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -132,13 +126,7 @@ export function VehicleGallery({ images, vehicleName }: VehicleGalleryProps) {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [
-    closeLightbox,
-    hasMultipleImages,
-    lightboxOpen,
-    showNext,
-    showPrevious,
-  ]);
+  }, [closeLightbox, hasMultipleImages, lightboxOpen, showNext, showPrevious]);
 
   if (!currentImage) {
     return <EmptyGallery />;
@@ -160,6 +148,7 @@ export function VehicleGallery({ images, vehicleName }: VehicleGalleryProps) {
             sizes="(max-width: 768px) 100vw, 60vw"
             className="object-cover"
             priority
+            unoptimized
           />
 
           <div className="absolute bottom-3 left-3 rounded-full bg-black/60 px-2.5 py-1 font-mono text-[0.7rem] text-white backdrop-blur-sm">
@@ -221,6 +210,7 @@ export function VehicleGallery({ images, vehicleName }: VehicleGalleryProps) {
                   fill
                   sizes="82px"
                   className="object-cover"
+                  unoptimized
                 />
               </button>
             ))}
@@ -259,7 +249,7 @@ export function VehicleGallery({ images, vehicleName }: VehicleGalleryProps) {
               fill
               sizes="100vw"
               className="object-contain"
-              priority
+              unoptimized
             />
           </div>
 
