@@ -6,7 +6,7 @@ export const WHATSAPP_NUMBER =
 export const COMPANY_INFO = {
   name: "Autostore Congo",
   tagline: "Votre partenaire import auto au Congo",
-  email: "contact@autostore-cg.com",
+  email: "contact@dm-autostore.com",
   phone: WHATSAPP_NUMBER,
   whatsapp: WHATSAPP_NUMBER,
   address: "Avenue de l'Indépendance, Pointe-Noire, Congo",

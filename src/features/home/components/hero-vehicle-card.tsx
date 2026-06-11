@@ -46,9 +46,9 @@ export const VehicleCard = memo(function VehicleCard() {
           className="object-cover object-center"
           fill
           priority
-          quality={90}
           sizes="(max-width: 768px) 100vw, 50vw"
           src={FEATURED_CAR.imageUrl}
+          unoptimized
         />
 
         {/* Bottom gradient overlay */}

@@ -137,7 +137,7 @@ export function Footer() {
               {COUNTRIES.filter((c) => c.active).map((country) => (
                 <li key={country.code}>
                   <Link
-                    href={`/catalogue?country=${country.code}`}
+                    href={`/catalog?country=${country.code}`}
                     className="flex items-center gap-2 text-[0.83rem] text-(--dim) hover:bg-(--gold) transition-colors"
                   >
                     <span aria-hidden="true">{country.flag}</span>
