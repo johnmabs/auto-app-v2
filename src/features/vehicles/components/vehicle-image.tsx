@@ -12,7 +12,7 @@ export default function VehicleImage({ src, alt }: Props) {
         src={src ?? "/images/placeholders/vehicle-placeholder.webp"}
         alt={alt}
         fill
-        /* sizes="(max-width: 768px) 100vw, 50vw" */
+        sizes="(max-width: 768px) 100vw, 50vw"
         className="object-cover"
         unoptimized
       />
