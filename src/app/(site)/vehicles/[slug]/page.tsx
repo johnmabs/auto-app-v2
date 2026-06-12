@@ -35,10 +35,12 @@ import { formatMileage, formatPrice } from "@/lib/utils";
 import type { VehicleType } from "@generated/prisma/enums";
 
 /* ── generateStaticParams ────────────────────────────────── */
-export async function generateStaticParams() {
+/* export async function generateStaticParams() {
   // En production, récupérer les slugs depuis la DB
   return [];
-}
+} */
+
+export const dynamic = "force-dynamic";
 
 /* ── generateMetadata ────────────────────────────────────── */
 export async function generateMetadata({
@@ -156,17 +158,14 @@ export default async function VehicleDetailPage({
   const country = getCountryInfo(vehicle.originCountry);
   const fuelLabel =
     FUEL_TYPE_FILTER_OPTIONS.find((fuel) => fuel.value === vehicle.fuelType)
-      ?.label ??
-    vehicle.fuelType;
+      ?.label ?? vehicle.fuelType;
   const transLabel =
     TRANSMISSION_FILTER_OPTIONS.find(
       (transmission) => transmission.value === vehicle.transmission,
-    )?.label ??
-    vehicle.transmission;
+    )?.label ?? vehicle.transmission;
   const typeLabel =
     VEHICLE_TYPE_FILTER_OPTIONS.find((type) => type.value === vehicle.type)
-      ?.label ??
-    vehicle.type;
+      ?.label ?? vehicle.type;
 
   const vehicleName = `${vehicle.make} ${vehicle.model} ${vehicle.year}`;
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://autostore-cg.com";
@@ -471,8 +470,7 @@ export default async function VehicleDetailPage({
                 <div className="flex justify-between pt-2 border-t border-(--border) font-medium">
                   <span>Total estimé</span>
                   <span className="font-mono text-(--gold)">
-                    {formatPrice(Math.round(vehicle.price * 1.15))}
-                    +
+                    {formatPrice(Math.round(vehicle.price * 1.15))}+
                   </span>
                 </div>
               </div>
