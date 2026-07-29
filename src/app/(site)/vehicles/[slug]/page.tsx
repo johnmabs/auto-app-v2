@@ -357,10 +357,10 @@ export default async function VehicleDetailPage({
                   price={vehicle.price}
                   comparePrice={vehicle.comparePrice ?? undefined}
                   size="lg"
-                  label="Prix de vente TTC"
+                  label="Prix de vente HT"
                 />
                 <p className="text-[0.72rem] text-(--dim) mt-2">
-                  Toutes taxes et frais de dédouanement inclus
+                  Taxes et frais de dédouanement exclus
                 </p>
               </div>
 
