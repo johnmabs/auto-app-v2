@@ -448,7 +448,7 @@ export default async function VehicleDetailPage({
             </div>
 
             {/* Cost estimator card */}
-            <div className="mt-4 bg-(--bg-2) border border-(--border) rounded-(--r-lg) p-5">
+        {/* <div className="mt-4 bg-(--bg-2) border border-(--border) rounded-(--r-lg) p-5">
               <h3 className="font-semibold text-[0.85rem] mb-3">
                 Coût estimatif total
               </h3>
@@ -467,18 +467,18 @@ export default async function VehicleDetailPage({
                   <span className="text-(--muted)">Dédouanement</span>
                   <span className="font-mono text-(--dim)">Sur devis</span>
                 </div>
-                {/* <div className="flex justify-between pt-2 border-t border-(--border) font-medium">
+                 <div className="flex justify-between pt-2 border-t border-(--border) font-medium">
                   <span>Total estimé</span>
                   <span className="font-mono text-(--gold)">
                     {formatPrice(Math.round(vehicle.price * 1.15))}+
                   </span>
-                </div> */}
+                </div> 
               </div>
-              {/* <p className="text-[0.68rem] text-(--dim) mt-2 leading-[1.6]">
+              <p className="text-[0.68rem] text-(--dim) mt-2 leading-[1.6]">
                 * Estimation basée sur +15%. Le devis précis dépend du pays de
                 destination.
-              </p> */}
-            </div>
+              </p>
+            </div> */}
           </div>
         </div>
 
