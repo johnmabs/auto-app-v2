@@ -467,17 +467,17 @@ export default async function VehicleDetailPage({
                   <span className="text-(--muted)">Dédouanement</span>
                   <span className="font-mono text-(--dim)">Sur devis</span>
                 </div>
-                <div className="flex justify-between pt-2 border-t border-(--border) font-medium">
+                {# <div className="flex justify-between pt-2 border-t border-(--border) font-medium">
                   <span>Total estimé</span>
                   <span className="font-mono text-(--gold)">
                     {formatPrice(Math.round(vehicle.price * 1.15))}+
                   </span>
-                </div>
+                </div> #}
               </div>
-              <p className="text-[0.68rem] text-(--dim) mt-2 leading-[1.6]">
+              {#<p className="text-[0.68rem] text-(--dim) mt-2 leading-[1.6]">
                 * Estimation basée sur +15%. Le devis précis dépend du pays de
                 destination.
-              </p>
+              </p> #}
             </div>
           </div>
         </div>
