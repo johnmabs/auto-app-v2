@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     serverActions: {
-      bodySizeLimit: "6mb",
+      bodySizeLimit: "7mb",
     },
   },
   /* ── Images ─────────────────────────────────────────────── */
