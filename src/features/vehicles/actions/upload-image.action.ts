@@ -67,16 +67,38 @@ export async function uploadVehicleImage(
       },
     };
   } catch (error) {
-    console.error("[uploadVehicleImage]", error);
+  console.error("========== UPLOAD VEHICLE IMAGE ERROR ==========");
 
-    if (isCloudinaryTimeout(error)) {
-      return {
-        success: false,
-        error:
-          "Cloudinary a mis trop de temps à répondre. Réessayez avec une image plus légère.",
-      };
-    }
-
-    return { success: false, error: "Erreur lors de l'upload de l'image" };
+  if (error instanceof Error) {
+    console.error("Name:", error.name);
+    console.error("Message:", error.message);
+    console.error("Stack:", error.stack);
+  } else {
+    console.error("Raw error:", error);
   }
+
+  if (typeof error === "object" && error !== null) {
+    const cloudinaryError = error as {
+      http_code?: number;
+      message?: string;
+      error?: { message?: string };
+    };
+
+    console.error("HTTP Code:", cloudinaryError.http_code);
+    console.error("Cloudinary message:", cloudinaryError.error?.message);
+  }
+
+  console.error("================================================");
+
+  if (isCloudinaryTimeout(error)) {
+    return {
+      success: false,
+      error: "Cloudinary a mis trop de temps à répondre. Réessayez avec une image plus légère.",
+    };
+  }
+
+  return {
+    success: false,
+    error: "Erreur lors de l'upload de l'image",
+  };
 }
