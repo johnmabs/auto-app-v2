@@ -102,3 +102,4 @@ export async function uploadVehicleImage(
     error: "Erreur lors de l'upload de l'image",
   };
 }
+}
