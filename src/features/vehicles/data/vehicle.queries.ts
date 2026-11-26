@@ -1,7 +1,11 @@
 import db from "@/lib/prisma";
+import { cacheLife, cacheTag } from "next/cache";
+
 import { VehicleStatus, type VehicleType } from "@generated/prisma/enums";
 import { buildVehicleFilters } from "../lib/vehicle-filters";
 import type { GetVehiclesParams } from "../types/vehicle-form.types";
+
+export const VEHICLES_HOME_CACHE_TAG = "vehicles-home";
 
 export async function getVehicles({
   search,
@@ -49,6 +53,10 @@ export async function getVehicles({
 }
 
 export async function getFeaturedVehicles() {
+  "use cache";
+  
+  cacheLife("hours");
+  cacheTag(VEHICLES_HOME_CACHE_TAG);
   return db.vehicle.findMany({
     where: {
       deletedAt: null,
@@ -73,6 +81,11 @@ export async function getFeaturedVehicles() {
 }
 
 export async function getRecentVehicles(limit: number = 6) {
+  "use cache";
+  
+  cacheLife("hours");
+  cacheTag(VEHICLES_HOME_CACHE_TAG);
+  
   return db.vehicle.findMany({
     where: {
       deletedAt: null,
