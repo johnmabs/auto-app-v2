@@ -8,7 +8,7 @@ import { createVehicleMutation } from "../data/vehicle.mutations";
 import { createVehicleSchema } from "../schemas/create-vehicle.schema";
 import type { VehicleFormState } from "../types/vehicle-form.types";
 
-import { VEHICLES_HOME_CACHE_TAG } from "@/features/vehicles/queries";
+import { VEHICLES_HOME_CACHE_TAG } from "../data/queries";
 
 export async function createVehicle(input: VehicleFormState) {
   try {
